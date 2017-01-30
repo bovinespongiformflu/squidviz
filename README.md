@@ -34,8 +34,7 @@ First, make sure that your machine has the right ceph.conf and client keyring. T
 
 You will need a webserver with PHP for the server-side pieces.
 
-	apt-get install apache2 libapache2-mod-php5
-	a2enmod php5
+	apt-get install apache2 libapache2-mod-php
 
 ### Add to document root
 
@@ -43,32 +42,5 @@ Move the squidviz dir into your document root (often /var/www).
 
 	mv squidviz/ /var/www
 
-### Install shellinabox
-
-If you're on Ubuntu 12.10:
-
-	apt-get install shellinabox
-
-If you're on Ubuntu 12.04, feel free to use the RPM provided.
-
-	dpkg install shellinabox_2.14-1_i386.deb
-
-For other distros, you may have to build from source.
-
-### Configure Apache
-
-For shellinabox to work, you have to set up Apache to proxy requests to it.
-
-	<IfModule mod_proxy.c>
-	  <Location /shell>
-	    ProxyPass http://127.0.0.1:4200
-	  </Location>
-	</IfModule>
-
-### Configure shellinabox
-
-There is some custom CSS for shellinabox that provides maximum eye candy. :)  Make it happen by adding this line to /etc/default/shellinabox:
-
-	SHELLINABOX_ARGS="--no-beep --localhost-only --service=/:SSH -t --static-file=styles.css:/var/www/squidviz/shell.css"
-
+Make sure Ceph is installed and the keys are in the correct locations to run 'ceph status' and such.
 # squidviz
