@@ -215,7 +215,6 @@ dd {
 <script>
 
 var pgver = 0;
-
 function refreshPage() {
 	if ($('#upd-logical').is(':checked')) {
 		$.ajax({
@@ -225,7 +224,7 @@ function refreshPage() {
 			success: function(data) {
 				if (pgver == 0) {
 					pgver = data['pgmap'];
-				} else if (data['pgmap'] != pgver) {
+				} else if (data['pgmap'] == 100) {
 					pgver = data['pgmap'];
 					$('#pgmap').fadeOut(200);
 					$('#pgmap').attr('src', $('#pgmap').attr('src'));
@@ -233,7 +232,7 @@ function refreshPage() {
 			}
 		});
 	}
-	setTimeout("refreshPage()", 3000);
+	setTimeout(refreshPage, 30000);
 }
 
 $(document).ready(function(){
