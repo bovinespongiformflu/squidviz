@@ -43,4 +43,6 @@ Move the squidviz dir into your document root (often /var/www).
 	mv squidviz/ /var/www
 
 Make sure Ceph is installed and the keys are in the correct locations to run 'ceph status' and such.
+Original software created by Ross Turk. https://github.com/rossturk/squidviz
+Updated to work with Jewel+
 # squidviz
