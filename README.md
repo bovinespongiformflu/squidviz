@@ -1,7 +1,5 @@
 # SquidViz: Cluster Visualizer
 
-Oh hi!  I didn't see you there.  How are you?  Good!  SquidViz, yeah?
-
 So SquidViz is a web-based visualizer for Ceph clusters, designed to help developers and new users understand how Ceph works.  It is based on D3.js, weaving together code that was originally part of three of D3's examples.
 
 There's a server-side piece that grabs info from Ceph (using "ceph osd tree" and "ceph pg dump", both with --format=json) and rebuilds the JSON so that it's in the hierarchical form that D3 wants.  Then, through a ridiculous collection of iframes and javascript hacks, it comes alive with updates on your cluster health.
@@ -12,15 +10,9 @@ SquidViz is a great way for visual learners to understand how Ceph reacts to cha
 
 The Physical tree does not update automatically so there's a refresh button.  The Logical tree *does* update automatically; you will soon realize, once you get to know it, that this is a feature that you will want to turn off from time to time.  That's what the checkbox does.
 
-There's a hidden terminal window (hint: click on the red "squidviz" in the header) and a hidden PG state legend (hint: click on "LOGICAL").  These are collapsed by default to keep things tidy, as SquidViz was originally built for demo purposes.
-
-Check out this video of [SquidViz in action](http://objects.dreamhost.com/rossturk/squidviz.mov).
+Thereis  a hidden PG state legend (hint: click on "LOGICAL"). It is collapsed by default to keep things tidy.
 
 ## Wat SquidViz it is not?
-
-This was built as a demonstration and learning tool.  As such, there are a few things that SquidViz particularly is *not*.
-
-SquidViz is not a full-featured Ceph admininstration or monitoring system.  A real management tool would scale beyond a dozen or so OSDs (or beyond a thousand or so PGs), while this one will not.  A real management tool would also dynamically update, while this one relies on refreshing iframes.  In short, anyone doing real work with Ceph should outgrow this almost immediately.
 
 SquidViz is not part of the Ceph Project.
 
@@ -44,5 +36,5 @@ Move the squidviz dir into your document root (often /var/www).
 
 Make sure Ceph is installed and the keys are in the correct locations to run 'ceph status' and such.
 Original software created by Ross Turk. https://github.com/rossturk/squidviz
+This software is being worked in a way which allows it's use on large scale ceph clusters
 Updated to work with Jewel+
-# squidviz
