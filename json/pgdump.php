@@ -6,8 +6,6 @@ $pools = array();
 
 $file = shell_exec('ceph osd dump --format=json');
 $osd_dump = json_decode($file);
-
-
 foreach ( $osd_dump->pools as $pool ) { $pools[$pool->pool] = $pool->pool_name; }
 
 $file = shell_exec('ceph pg dump --format=json');
@@ -17,6 +15,9 @@ $pgTree = array('name' => 'cluster', 'version' => $pg_dump->version, 'children' 
 
 foreach ( $pg_dump->pg_stats as $pg )
 {
+	if (strpos($pg->state, 'active+clean') !== false) {
+        continue;
+    	}
 	list ($pool, $group) = explode('.', $pg->pgid);
 	
 	$poolindex = -1;
